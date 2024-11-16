@@ -1,0 +1,120 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Typography */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #2d3e50;
+    color: white;
+    padding: 20px 0;
+}
+
+header .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Sections */
+.section {
+    padding: 50px 0;
+    background-color: white;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    background-color: #2d3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+/* Apply the gradient to the text */
+.gradient-text {
+    font-family: 'Grand Hotel', cursive;
+    font-size: 4rem;
+    background: linear-gradient(to right, #40e0d0, #ff8c00); /* gradient from turquoise to orange */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    color: transparent; /* Make the text itself transparent so the background shows through */
+    text-align: center; /* Center align the text */
+    padding: 20px; /* Optional padding for spacing */
+}
+
+#buttonDiv button{
+    padding: 10px 20px;
+    background-color: #93fff4;
+    border: none;
+    border-radius: 6px;
+    margin: 20px;
+    transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s;
+}
+
+#buttonDiv button:hover{
+    background-color: #40e0d0;
+    transform: translateY(-5px);
+
+}
+
+#buttonDiv, #ImgDiv{
+    padding: 20px;
+    margin: 10px;
+    background-color: #333;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}

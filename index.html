@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Tekkie Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1 class="gradient-text">TekkieToe</h1>
+    </header>
+    <div id="buttonDiv">
+        <button class="PlayButton">Play</button>
+        <br>
+        <button class="Guide">Guide</button>
+    </div>
+    <div class="ImgDiv" style="padding: 20px; margin: 10px; border: #ff8c00; background-color: #333; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);">
+        <img src="image.png" width="300px" style="border-radius: 10px; margin: auto;">
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tic-Tac-Toe Knowledge Hub. All Rights Reserved.</p>
+        </div>
+    </footer>
     
 </body>
+<script>
+        // Get the button element by class name
+        const PlayButton = document.querySelector('.PlayButton');
+        const GuideButton = document.querySelector('.Guide')
+        
+        // Add event listener to open a webpage when clicked
+        PlayButton.addEventListener('click', function() {
+            // Open the webpage in a new tab
+            window.open('game.html', '_blank');
+        });
+
+        GuideButton.addEventListener('click', function() {
+            // Open the webpage in a new tab
+            window.open('guide.html', '_blank');
+        });
+    </script>
 </html>

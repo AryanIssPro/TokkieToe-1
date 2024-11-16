@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> game-Tic Tac Toe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d37aee;
+            margin: 0;
+        }
+        .game-container {
+            text-align: center;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 2px solid #333;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s;
+        }
+        .cell:hover {
+            background-color: #10cab1;
+        }
+        .winner-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #faf9f9;
+        }
+        .reset-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: #0a7e27;
+            color: #fcf9f9;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .reset-button:hover {
+            background-color: #42b300;
+        }
+    </style>
+</head>
+<body>
+
+<div class="game-container">
+    <h1>Tic tac toe</h1>
+    <div class="board" id="board"></div>
+    <p class="winner-message" id="winnerMessage"></p>
+    <button class="reset-button" id="resetButton">Start New Game</button>
+</div>
+
+<script>
+    const boardElement = document.getElementById("board");
+    const winnerMessage = document.getElementById("winnerMessage");
+    const resetButton = document.getElementById("resetButton");
+    let currentPlayer = 'X';
+    let gameBoard = Array(9).fill(null);
+    let gameActive = true;
+
+    // Create the game board
+    function createBoard() {
+        boardElement.innerHTML = '';
+        for (let i = 0; i < 9; i++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.setAttribute("data-index", i);
+            cell.addEventListener("click", handleCellClick);
+            boardElement.appendChild(cell);
+        }
+    }
+
+    // Handle click event on each cell
+    function handleCellClick(event) {
+        const index = event.target.getAttribute("data-index");
+        if (gameBoard[index] || !gameActive) return;
+
+        gameBoard[index] = currentPlayer;
+        event.target.textContent = currentPlayer;
+        if (checkWinner()) {
+            winnerMessage.textContent = `${currentPlayer} Wins!`;
+            gameActive = false;
+        } else if (gameBoard.every(cell => cell !== null)) {
+            winnerMessage.textContent = "It's a Draw!";
+            gameActive = false;
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+    }
+
+    // Check if there is a winner
+    function checkWinner() {
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6]             // Diagonals
+        ];
+        for (const [a, b, c] of winningCombinations) {
+            if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Reset the game
+    function resetGame() {
+        gameBoard = Array(9).fill(null);
+        gameActive = true;
+        currentPlayer = 'X';
+        winnerMessage.textContent = '';
+        createBoard();
+    }
+
+    // Initialize game
+    createBoard();
+    resetButton.addEventListener("click", resetGame);
+</script>
+
+</body>
+</html>
