@@ -12,6 +12,16 @@ body {
     background-color: #fbfcf5;
     color: #333;
 }
+.one{
+    background-color: #333;
+    align-items:center ;
+    margin: 10px;
+    border-radius: 15px;
+}
+div:hover{
+    background-color: #161f2a;
+    transform: translateY(-5px);
+}
 
 /* Header */
 header {
@@ -85,18 +95,18 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
-/* Apply the gradient to the text */
+
 .gradient-text {
     font-family: 'Grand Hotel', cursive;
     font-size: 4rem;
-    background: linear-gradient(to right, #40e0d0, #ff8c00); /* gradient from turquoise to orange */
-    -webkit-background-clip: text; /* Clip the background to the text */
-    color: transparent; /* Make the text itself transparent so the background shows through */
-    text-align: center; /* Center align the text */
-    padding: 20px; /* Optional padding for spacing */
+    background: linear-gradient(to right, #40e0d0, #ff8c00);
+    -webkit-background-clip: text; 
+    color: transparent; 
+    text-align: center; 
+    padding: 20px; 
 }
 
-#buttonDiv button{
+Button{
     padding: 10px 20px;
     background-color: #93fff4;
     border: none;
@@ -105,16 +115,8 @@ footer {
     transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s;
 }
 
-#buttonDiv button:hover{
+Button:hover{
     background-color: #40e0d0;
     transform: translateY(-5px);
 
-}
-
-#buttonDiv, #ImgDiv{
-    padding: 20px;
-    margin: 10px;
-    background-color: #333;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
 }
